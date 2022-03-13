@@ -2,6 +2,47 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const name = "hello"
+
+let username: string = "Hello"
+let dummyNum = 2;
+
+let array2 = [0, 2, "hello"]
+
+interface NAME {
+  first: string;
+  last: string;
+}
+
+let nambeObj: NAME = {
+  first: "Taro",
+  last: "Yamada"
+};
+
+const func1 = (x: number, y: number): number => {
+  return x + y;
+}
+
+// Intersection Types
+type PROFILE = {
+  age: number;
+  city: string;
+}
+
+type LOGIN = {
+  username: string;
+  password: string;
+}
+
+type USER = PROFILE & LOGIN;
+
+const userA: USER = {
+  age: 30,
+  city: "Tokyo",
+  username: "xxx",
+  password: "yyy"
+}
+
 function App() {
   return (
     <div className="App">
