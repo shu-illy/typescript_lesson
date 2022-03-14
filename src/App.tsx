@@ -1,7 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 import Data from "./data.json";
+import TestComponent from "./TestComponent";
 
 // JSONの型推論
 // typeofを使うことで、JSONのkeyをまとめて型定義することができる
@@ -21,7 +22,7 @@ interface NAME {
 
 let nambeObj: NAME = {
   first: "Taro",
-  last: "Yamada"
+  last: "Yamada",
 };
 
 const func1 = (x: number, y: number): number => {
@@ -45,7 +46,7 @@ const userA: USER = {
   age: 30,
   city: "Tokyo",
   username: "xxx",
-  password: "yyy"
+  password: "yyy",
 };
 
 // Union Types
@@ -83,7 +84,7 @@ key = "primary";
 // typeof + keyof
 const SPORTS = {
   soccer: "Soccer",
-  baseball: "Baseball"
+  baseball: "Baseball",
 };
 let keySports: keyof typeof SPORTS;
 keySports = "soccer";
@@ -96,18 +97,18 @@ enum OS {
 }
 
 interface PC {
-  id: number,
+  id: number;
   OSType: OS;
 }
 
 const PC1: PC = {
   id: 1,
-  OSType: OS.Windows
+  OSType: OS.Windows,
 };
 
 const PC2: PC = {
   id: 2,
-  OSType: OS.Mac
+  OSType: OS.Mac,
 };
 
 // 型の互換性
@@ -117,8 +118,8 @@ let comp2: string = comp1;
 
 let comp3: string = "test";
 
-let funcComp1 = (x: number) => { };
-let funcComp2 = (x: string) => { };
+let funcComp1 = (x: number) => {};
+let funcComp2 = (x: string) => {};
 
 // funcComp1 = funcComp2;
 // funcComp2 = funcComp1;
@@ -141,7 +142,7 @@ interface GEN2<T extends string | number> {
 }
 
 const gen4: GEN2<string> = {
-  item: "hoge"
+  item: "hoge",
 };
 
 function funcGen<T>(props: T) {
@@ -170,27 +171,14 @@ const funcGen4 = <T extends Props>(props: T) => {
   return { value: props.price };
 };
 
-
-
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <TestComponent text="hello from App" />
       </header>
     </div>
   );
-}
+};
 
 export default App;
